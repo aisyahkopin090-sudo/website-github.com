@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>RAUZA_BAGSHOES | Tas & Sepatu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">RAUZA<span>_BAGSHOES</span></div>
+    <nav>
+      <a href="#home">Beranda</a>
+      <a href="#produk">Produk</a>
+      <a href="#ulasan">Ulasan</a>
+      <button onclick="bukaKeranjang()">
+        🛒 Keranjang (<span id="jumlahKeranjang">0</span>)
+      </button>
+    </nav>
+  </header>
+
+  <!-- HALAMAN BERANDA -->
+  <section id="home" class="hero">
+    <div>
+      <h1>Selamat Datang di RAUZA_BAGSHOES</h1>
+      <p>
+        Temukan tas dan sepatu stylish, berkualitas,
+        dengan harga terbaik untuk penampilanmu!
+      </p>
+      <a href="#produk" class="btn">Belanja Sekarang</a>
+    </div>
+  </section>
+
+  <!-- PRODUK -->
+  <section id="produk" class="container">
+    <h2>🛍️ Koleksi Produk Kami</h2>
+
+    <div class="filter">
+      <input type="text" id="pencarian"
+             placeholder="Cari tas atau sepatu..."
+             oninput="tampilkanProduk()">
+
+      <select id="kategori" onchange="tampilkanProduk()">
+        <option value="semua">Semua Produk</option>
+        <option value="Tas">Tas</option>
+        <option value="Sepatu">Sepatu</option>
+      </select>
+    </div>
+
+    <div class="produk-grid" id="daftarProduk"></div>
+  </section>
+
+  <!-- ULASAN PELANGGAN -->
+  <section id="ulasan" class="container">
+    <h2>⭐ Ulasan Pelanggan</h2>
+    <p class="subtitle">
+      Bagikan pengalaman berbelanja Anda di RAUZA_BAGSHOES.
+    </p>
+
+    <div class="form-ulasan">
+      <input type="text" id="namaUlasan"
+             placeholder="Nama pelanggan">
+
+      <select id="produkUlasan">
+        <option value="">Pilih Produk</option>
+      </select>
+
+      <select id="rating">
+        <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+        <option value="4">⭐⭐⭐⭐ (4)</option>
+        <option value="3">⭐⭐⭐ (3)</option>
+        <option value="2">⭐⭐ (2)</option>
+        <option value="1">⭐ (1)</option>
+      </select>
+
+      <textarea id="komentar" rows="4"
+                placeholder="Tuliskan ulasan produk..."></textarea>
+
+      <button class="btn" onclick="kirimUlasan()">
+        Kirim Ulasan
+      </button>
+    </div>
+
+    <div id="daftarUlasan"></div>
+  </section>
+
+  <!-- MODAL KERANJANG -->
+  <div class="modal" id="modalKeranjang">
+    <div class="modal-content">
+      <button class="close" onclick="tutupKeranjang()">✖</button>
+
+      <h2>🛒 Keranjang Belanja</h2>
+      <div id="isiKeranjang"></div>
+
+      <h3>Total: <span id="totalHarga">Rp0</span></h3>
+
+      <button class="btn" onclick="bukaCheckout()">
+        Lanjut Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT WHATSAPP -->
+  <div class="modal" id="modalCheckout">
+    <div class="modal-content">
+      <button class="close" onclick="tutupCheckout()">✖</button>
+
+      <h2>📦 Data Pemesanan</h2>
+      <p>Lengkapi data untuk memesan melalui WhatsApp.</p>
+
+      <form id="formCheckout">
+        <input id="namaPembeli" type="text"
+               placeholder="Nama lengkap" required>
+
+        <input id="telepon" type="tel"
+               placeholder="Nomor WhatsApp pembeli" required>
+
+        <textarea id="alamat"
+                  placeholder="Alamat lengkap pengiriman"
+                  required></textarea>
+
+        <p>
+          Total Belanja:
+          <strong id="totalCheckout">Rp0</strong>
+        </p>
+
+        <button class="btn btn-wa" type="submit">
+          📱 Pesan via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>RAUZA_BAGSHOES</h3>
+    <p>Fashionable, Comfortable & Affordable</p>
+    <p>© 2026 RAUZA_BAGSHOES. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
